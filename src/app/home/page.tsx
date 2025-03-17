@@ -18,7 +18,8 @@ interface HomePageProps {
 }
 
 const HomePage = ({ peopleListResponse }: HomePageProps) => {
-  const router = useRouter()
+  console.log("homePage");
+  const router = useRouter();
   const [peopleList, setPeopleList] = useState(peopleListResponse);
   const { favoriteList, addFavoriteList } = useFavorite();
 
@@ -40,9 +41,9 @@ const HomePage = ({ peopleListResponse }: HomePageProps) => {
     addFavoriteList(id);
   }, []);
 
-  const onViewDetailClick = (id:number) => {
+  const onViewDetailClick = (id: number) => {
     // getPeopleList(apiUrl?.get_people + "/" + id)
-    router.push(`/character/${id}`)
+    router.push(`/character/${id}`);
   };
 
   const onPrevious = useCallback(() => {
